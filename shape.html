@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shape Changer</title>
+  <style>
+    .shape {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border-radius: 50%;
+    }
+
+    .rectangle {
+      border-radius: 0;
+    }
+
+    .selected {
+      transform: scale(1.2); /* Increase size for the selected shape */
+    }
+
+    .shrink {
+      transform: scale(0.8); /* Decrease size for the other shapes */
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <div class="shape" id="shape1" onmouseenter="changeShape('shape1', true)" onmouseleave="changeShape('shape1', false)">Circle 1</div>
+    <div class="shape" id="shape2" onmouseenter="changeShape('shape2', true)" onmouseleave="changeShape('shape2', false)">Circle 2</div>
+    <div class="shape" id="shape3" onmouseenter="changeShape('shape3', true)" onmouseleave="changeShape('shape3', false)">Circle 3</div>
+</div>
+
+<script>
+  function changeShape(shapeId, isHover) {
+    var selectedShape = document.getElementById(shapeId);
+    var allShapes = document.querySelectorAll('.shape');
+    
+    if (isHover) {
+      // Toggle between circle and rectangle on hover
+      allShapes.forEach(function(shape) {
+        shape.classList.remove('selected', 'shrink', 'rectangle');
+        shape.innerText = 'Circle';
+        if (shape.id === shapeId) {
+          shape.classList.add('selected', 'rectangle');
+          shape.innerText = 'Rectangle';
+        } else {
+          shape.classList.add('shrink');
+        }
+      });
+    } else {
+      // Revert back to the original state on mouse leave
+      allShapes.forEach(function(shape) {
+        shape.classList.remove('selected', 'shrink', 'rectangle');
+        shape.innerText = 'Circle';
+      });
+    }
+  }
+</script>
+
+</body>
+</html>

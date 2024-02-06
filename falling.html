@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staggered Falling Text Animation</title>
+  <style>
+    @keyframes fallIn {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(20px);
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .falling-text {
+      animation: fallIn 0.7s ease-out forwards;
+      animation-delay: 0.3s;
+      margin-bottom: 10px;
+      opacity: 0; /* Initially set to be invisible */
+    }
+
+    .falling-text:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    .falling-text:nth-child(3) {
+      animation-delay: 1.3s;
+    }
+
+    .falling-text:nth-child(4) {
+      animation-delay: 1.8s;
+    }
+
+    .falling-text:nth-child(5) {
+      animation-delay: 2.3s;
+    }
+  </style>
+</head>
+<body>
+
+<div class="falling-text">Rock</div>
+<div class="falling-text">Paper</div>
+<div class="falling-text">Scissors</div>
+<div class="falling-text">Lizard</div>
+<div class="falling-text">Spock</div>
+
+</body>
+</html>

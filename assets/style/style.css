@@ -1,0 +1,22 @@
+body {
+    background-color: #3C4142;
+}
+
+#shape-container {
+    position: relative;
+  }
+  
+  #shape {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #text {
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+  }
