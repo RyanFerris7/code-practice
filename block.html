@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('your-background-image.jpg') center/cover no-repeat; /* Replace 'your-background-image.jpg' with your image URL */
+      overflow: hidden;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px); 
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #square {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      background: #fff; 
+    }
+
+    #openButton {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #000; 
+      color: #fff; 
+      border-radius: 5px;
+    }
+  </style>
+  <title>Overlay with Square</title>
+</head>
+<body>
+  <button id="openButton">Overlay</button>
+
+  <div id="overlay">
+    <div id="square">
+        <span class="tutorialText">It's like rock, the paper and scissors - but quirky!</span>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const openButton = document.getElementById("openButton");
+      const overlay = document.getElementById("overlay");
+
+      openButton.addEventListener("click", function() {
+        overlay.style.display = "block";
+        setTimeout(() => {
+          overlay.style.opacity = "1";
+        }, 10);
+      });
+
+      overlay.addEventListener("click", function() {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+          overlay.style.display = "none";
+        }, 300); // Adjust the duration to match the transition duration
+      });
+    });
+  </script>
+</body>
+</html>
