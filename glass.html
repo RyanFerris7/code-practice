@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        .selectShapeContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Optional: adjust as needed */
+        }
+
         .jagged-shape {
             width: 150px;
             height: 150px;
+            margin: 10px; /* Optional: adjust margin as needed */
             position: relative;
-            background-color: #3498db;
+            background-color: #333;
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             transition: clip-path 0.10s ease-in-out;
             overflow: hidden;
@@ -40,15 +47,17 @@
             rotate: 15deg;
         }
     </style>
-    <title>Jagged Shape</title>
+    <title>Jagged Shapes</title>
 </head>
 
 <body>
-    <div class="jagged-shape"></div>
-    <div class="jagged-shape"></div>
-    <div class="jagged-shape"></div>
-    <div class="jagged-shape"></div>
-    <div class="jagged-shape"></div>
+    <div class="selectShapeContainer">
+        <div class="jagged-shape"></div>
+        <div class="jagged-shape"></div>
+        <div class="jagged-shape"></div>
+        <div class="jagged-shape"></div>
+        <div class="jagged-shape"></div>
+    </div>
 </body>
 
 </html>
